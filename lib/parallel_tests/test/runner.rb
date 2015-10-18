@@ -109,7 +109,9 @@ module ParallelTests
         end
 
         def test_env_number(process_number)
-          process_number == 0 ? '' : process_number + 1
+          number = process_number == 0 ? 1 : process_number + 1
+          p "Process #{number} is using DB: kaybus_test#{ENV["TEST_ENV_NUMBER#{number}"]}"
+          ENV["TEST_ENV_NUMBER#{number}"]
         end
 
         def summarize_results(results)
